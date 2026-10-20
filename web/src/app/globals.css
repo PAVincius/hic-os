@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Tema = conjunto de tokens. Para criar um tema novo, copie um bloco [data-theme] e troque os valores. */
+:root, [data-theme="ember"] {
+  --bg:#141414; --frame:#2b2b2b; --frame-line:#3a3a3a;
+  --card:#d7d3cc; --card-2:#c6c1b9; --ink:#1b1917; --ink-mute:#5c574f;
+  --dark:#1d1c1a; --fg:#e8e3da; --mute:#8d867c;
+  --work:#ffb257; --dist:#ff4d2e; --idle:#7a7268; --unk:#8a6cff; --late:#3d6bff;
+  --r:22px; --glass:rgba(255,255,255,.07); --glass-line:rgba(255,255,255,.14);
+  color-scheme: dark;
+}
+[data-theme="mono"] {
+  --bg:#0e0e0e; --frame:#222; --frame-line:#333;
+  --card:#d4d4d4; --card-2:#bdbdbd; --ink:#111; --ink-mute:#555;
+  --dark:#181818; --fg:#eee; --mute:#888;
+  --work:#fff; --dist:#ff5a5a; --idle:#777; --unk:#9a9a9a; --late:#9ab4ff;
+  --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.12);
+}
+
+@theme inline {
+  --color-bg: var(--bg); --color-fg: var(--fg); --color-mute: var(--mute);
+  --color-frame: var(--frame); --color-work: var(--work); --color-dist: var(--dist);
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+html, body { min-height: 100%; background: var(--bg); color: var(--fg); font-family: var(--font-display); }
+body { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
